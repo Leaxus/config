@@ -1,0 +1,10 @@
+alias ch_c='python ~/c_checker/recette_c.py'
+alias ls='ls -G'
+alias la='ls -Ga'
+alias ll='ls -Gal'
+
+alias ga='git add'
+alias gA='git add -A'
+alias gr='git rm'
+alias gs='git status'
+alias gl='git lg'
