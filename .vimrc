@@ -16,9 +16,11 @@ call vundle#begin()
 " Add Plugins bellow
 Plugin 'gmarik/Vundle.vim'
 Plugin 'Syntastic' " Identify syntax error
-Plugin 'tpope/vim-fugitive' " Git rapper
+Plugin 'tpope/vim-fugitive' " Git iwrapper
 Plugin 'bling/vim-airline' " Status/tabline
 Plugin 'altercation/vim-colors-solarized' " Famous scheme color solarized
+Plugin 'bronson/vim-trailing-whitespace' " Highlight trailing space in red
+Plugin 'Valloric/YouCompleteMe'
 " Plugin 'Tagbar'
 
 call vundle#end()
