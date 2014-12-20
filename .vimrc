@@ -20,7 +20,8 @@ Plugin 'tpope/vim-fugitive' " Git iwrapper
 Plugin 'bling/vim-airline' " Status/tabline
 Plugin 'altercation/vim-colors-solarized' " Famous scheme color solarized
 Plugin 'bronson/vim-trailing-whitespace' " Highlight trailing space in red
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe' " AutoCompletion for code
+Plugin 'scrooloose/nerdtree'
 " Plugin 'Tagbar'
 
 call vundle#end()
@@ -74,6 +75,9 @@ set wrap
 set textwidth=79
 " set statusline=%f\ %l\|%c\ %m%=%p%%\ (%Y%R)
 
+" close the window if there is only the NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Design
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -88,6 +92,7 @@ let g:solarized_visibility="high"
 set background=dark
 colorscheme solarized
 
+" Apply colorscheme on AirLine
 au VimEnter * AirlineTheme powerlineish
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -103,24 +108,5 @@ let g:syntastic_c_compiler='clang'
 let g:syntastic_c_compiler_options='-Werror -Wall -Wextra -std=c99 -pedantic'
 let g:syntastic_c_check_header=1
 
-" "@ Toggle Rainbow parentheses
-"au VimEnter * RainbowParenthesesToggleAll
-"au Syntax * RainbowParenthesesLoadRound
-"au Syntax * RainbowParenthesesLoadSquare
-"au Syntax * RainbowParenthesesLoadBraces
-
-" Toggle Tagbar
-"noremap <leader>tt :TagbarToggle<cr>
-"
-" " Toggle NERDTree
-" noremap <leader>nt :NERDTreeToggle<cr>
-"
-" " Align all variable names with tabular
-" noremap <leader>ta :Tab / [^ ]*;<cr>
-"
-" " Launch fugitive's gstatus
-" noremap <leader>gs :Gstatus<cr>
-"
-" let g:airline_powerline_fonts=1
-"
-" " Set theme for Airline
+" Disable this option in order to make it work with Syntastic
+let g:ycm_show_diagnostics_ui = 0
